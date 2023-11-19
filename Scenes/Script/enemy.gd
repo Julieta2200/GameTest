@@ -10,9 +10,12 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if entered:
-		position += (player.position - position)/speed
+		var direction = (player.position - position)/speed
+		velocity=direction * speed
+		move_and_slide()
+		
 		
 
 
