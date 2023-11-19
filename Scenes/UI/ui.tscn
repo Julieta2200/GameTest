@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=3 uid="uid://cs3p0vlnnpqr3"]
+
+[ext_resource type="Texture2D" uid="uid://c5h4lcuw6k3k8" path="res://img/frame_11111.png" id="1_7x7ro"]
+[ext_resource type="Texture2D" uid="uid://x0e0luqfv47n" path="res://img/image_4.png" id="2_badtq"]
+[ext_resource type="Texture2D" uid="uid://cpjtaunx2k4sa" path="res://img/frame_15.png" id="3_r0s1h"]
+[ext_resource type="Texture2D" uid="uid://dm5y3jypplufn" path="res://img/frame_16.png" id="4_6lc1j"]
+
+[node name="UI" type="CanvasLayer"]
+
+[node name="HeartContainer" type="HBoxContainer" parent="."]
+anchors_preset = -1
+anchor_left = 0.989
+anchor_top = 0.034
+anchor_right = 1.0
+anchor_bottom = 0.034
+offset_left = -172.0
+offset_bottom = 50.0
+grow_horizontal = 0
+
+[node name="TextureRect" type="TextureRect" parent="HeartContainer"]
+layout_mode = 2
+texture = ExtResource("1_7x7ro")
+
+[node name="TextureRect2" type="TextureRect" parent="HeartContainer"]
+layout_mode = 2
+texture = ExtResource("1_7x7ro")
+
+[node name="TextureRect3" type="TextureRect" parent="HeartContainer"]
+layout_mode = 2
+texture = ExtResource("1_7x7ro")
+
+[node name="TextureRect4" type="TextureRect" parent="HeartContainer"]
+layout_mode = 2
+texture = ExtResource("1_7x7ro")
+
+[node name="map" type="TextureRect" parent="."]
+anchors_preset = -1
+anchor_left = 0.977
+anchor_top = 0.966
+anchor_right = 0.977
+anchor_bottom = 0.966
+offset_left = -100.0
+offset_top = -100.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("2_badtq")
+expand_mode = 4
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+anchors_preset = -1
+anchor_left = 0.034
+anchor_top = 0.023
+anchor_right = 0.034
+anchor_bottom = 0.023
+offset_right = 325.0
+offset_bottom = 51.0
+grow_horizontal = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("3_r0s1h")
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("4_6lc1j")

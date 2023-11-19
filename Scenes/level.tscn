@@ -1,3 +1,23 @@
-[gd_scene format=3 uid="uid://ddppe5orce0bg"]
+[gd_scene load_steps=5 format=3 uid="uid://ddppe5orce0bg"]
+
+[ext_resource type="Texture2D" uid="uid://ct8g6eh0hrn7x" path="res://img/images.jpg" id="1_xekp3"]
+[ext_resource type="PackedScene" uid="uid://du323m3diy4ps" path="res://Scenes/player.tscn" id="2_d5ddt"]
+[ext_resource type="PackedScene" uid="uid://cs3p0vlnnpqr3" path="res://Scenes/UI/ui.tscn" id="3_6bt3w"]
+[ext_resource type="PackedScene" uid="uid://dcdmommtk3bff" path="res://Scenes/enemy.tscn" id="3_67ho7"]
 
 [node name="Level" type="Node2D"]
+
+[node name="background" type="Sprite2D" parent="."]
+texture_repeat = 2
+texture = ExtResource("1_xekp3")
+region_enabled = true
+region_rect = Rect2(-1051.25, -1618.83, 4086.11, 2892.24)
+
+[node name="Player" parent="." instance=ExtResource("2_d5ddt")]
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="Enemy" parent="." instance=ExtResource("3_67ho7")]
+position = Vector2(653, 182)
+
+[node name="UI" parent="." instance=ExtResource("3_6bt3w")]
