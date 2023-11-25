@@ -1,16 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://dcdmommtk3bff"]
+[gd_scene load_steps=5 format=3 uid="uid://dcdmommtk3bff"]
 
 [ext_resource type="Script" path="res://Scenes/Script/enemy.gd" id="1_8mxfp"]
 [ext_resource type="Texture2D" uid="uid://haa1o4r736v0" path="res://img/download-removebg-preview.png" id="1_b1xos"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3fje3"]
-radius = 188.13
+radius = 307.163
 
-[node name="Enemy" type="CharacterBody2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_8f0ce"]
+radius = 49.0102
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+motion_mode = 1
 script = ExtResource("1_8mxfp")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-36, 24, -42, 23, -44, 18, -44, 8, -40, 4, -32, 9, -28, 5, -29, -20, -21, -30, -12, -39, -5, -41, 15, -41, 22, -38, 31, -29, 37, -20, 38, -5, 44, -1, 44, 11, 32, 11, 32, 18, 22, 27, 12, 32, -28, 33, -32, 30)
 
 [node name="enemy" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
@@ -21,5 +22,18 @@ texture = ExtResource("1_b1xos")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_3fje3")
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-36, 24, -42, 23, -44, 18, -44, 8, -40, 4, -32, 9, -28, 5, -29, -20, -21, -30, -12, -39, -5, -41, 15, -41, 22, -38, 31, -29, 37, -20, 38, -5, 44, -1, 44, 11, 32, 11, 32, 18, 22, 27, 12, 32, -28, 33, -32, 30)
+
+[node name="Area2D2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+shape = SubResource("CircleShape2D_8f0ce")
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]
