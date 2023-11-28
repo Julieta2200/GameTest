@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dlsjuwqrqrbf0"]
+[gd_scene load_steps=6 format=3 uid="uid://dlsjuwqrqrbf0"]
 
 [ext_resource type="Texture2D" uid="uid://dpwcdfomvbv5b" path="res://img/grenade.png" id="1_hxqsi"]
+[ext_resource type="Script" path="res://Scenes/enemy_2.gd" id="1_v2fju"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nhrmu"]
 radius = 24.0832
@@ -8,8 +9,12 @@ radius = 24.0832
 [sub_resource type="CircleShape2D" id="CircleShape2D_hbwfu"]
 radius = 111.126
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_e6nlw"]
+radius = 24.0208
+
 [node name="Enemy2" type="RigidBody2D"]
 gravity_scale = 0.0
+script = ExtResource("1_v2fju")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.3, 0.3)
@@ -19,7 +24,19 @@ texture = ExtResource("1_hxqsi")
 shape = SubResource("CircleShape2D_nhrmu")
 one_way_collision_margin = 0.0
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="AlertArea" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AlertArea"]
 shape = SubResource("CircleShape2D_hbwfu")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="ContactArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ContactArea"]
+shape = SubResource("CircleShape2D_e6nlw")
+
+[connection signal="body_entered" from="AlertArea" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="ContactArea" to="." method="_on_contact_area_body_entered"]
