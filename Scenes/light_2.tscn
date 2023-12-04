@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmso7pibaa3h5"]
+
+[ext_resource type="Texture2D" uid="uid://eajq1q684ryd" path="res://img/images-removebg-preview (3).png" id="1_k1uf3"]
+[ext_resource type="Texture2D" uid="uid://qsqxsee2bttc" path="res://img/circle.png" id="2_uwvvv"]
+
+[node name="Light2" type="StaticBody2D"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-2, -70, -2, -66, -8, -66, -2, -58, -2, -52, -12, -38, -18, -36, -23, -42, -19, -51, -18, -63, -24, -66, -29, -65, -29, -50, -26, -43, -21, -36, -14, -35, -2, -50, -3, 56, -6, 66, -13, 76, 14, 76, 7, 66, 5, 56, 2, 54, 2, -17, 2, -49, 6, -48, 9, -40, 13, -35, 21, -36, 26, -42, 25, -47, 29, -53, 29, -60, 30, -65, 25, -67, 18, -65, 19, -51, 23, -47, 22, -41, 18, -38, 12, -39, 9, -47, 4, -52, 2, -55, 2, -60, 5, -60, 5, -63, 8, -64, 5, -65, 3, -66, 2, -70)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_k1uf3")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(24, -55)
+color = Color(0.952941, 0.858824, 0.768627, 1)
+energy = 2.0
+texture = ExtResource("2_uwvvv")
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+position = Vector2(-25, -54)
+color = Color(0.968627, 0.839216, 0.643137, 1)
+energy = 2.0
+shadow_enabled = true
+shadow_filter = 2
+texture = ExtResource("2_uwvvv")

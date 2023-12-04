@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpfxx36enxpwx"]
+
+[ext_resource type="Texture2D" uid="uid://br1o7cry2vpgw" path="res://img/images-removebg-preview (1).png" id="1_orbqh"]
+[ext_resource type="Texture2D" uid="uid://qsqxsee2bttc" path="res://img/circle.png" id="2_maiw2"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_sx04c"]
+
+[node name="Light1" type="StaticBody2D"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-17, -80, -10, -85, -7, -93, 1, -95, 7, -90, 12, -82, 17, -77, 14, -68, 10, -47, 4, -39, 6, -34, 3, -31, 2, 61, 5, 65, 6, 73, 8, 79, -10, 78, -5, 74, -4, 64, -3, 60, -2, -31, -5, -37, -9, -48)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_orbqh")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, -61)
+energy = 3.0
+shadow_enabled = true
+shadow_filter = 2
+texture = ExtResource("2_maiw2")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+visible = false
+occluder = SubResource("OccluderPolygon2D_sx04c")

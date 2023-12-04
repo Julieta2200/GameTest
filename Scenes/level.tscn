@@ -1,12 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://ddppe5orce0bg"]
+[gd_scene load_steps=9 format=3 uid="uid://ddppe5orce0bg"]
 
 [ext_resource type="Texture2D" uid="uid://ct8g6eh0hrn7x" path="res://img/images.jpg" id="1_xekp3"]
 [ext_resource type="PackedScene" uid="uid://du323m3diy4ps" path="res://Scenes/player.tscn" id="2_d5ddt"]
 [ext_resource type="PackedScene" uid="uid://cs3p0vlnnpqr3" path="res://Scenes/UI/ui.tscn" id="3_6bt3w"]
 [ext_resource type="PackedScene" uid="uid://dcdmommtk3bff" path="res://Scenes/enemy.tscn" id="3_67ho7"]
 [ext_resource type="PackedScene" uid="uid://dlsjuwqrqrbf0" path="res://Scenes/enemy_2.tscn" id="5_e4i43"]
+[ext_resource type="PackedScene" uid="uid://bpfxx36enxpwx" path="res://Scenes/light_1.tscn" id="6_0nn6v"]
+[ext_resource type="PackedScene" uid="uid://bmso7pibaa3h5" path="res://Scenes/light_2.tscn" id="7_sssry"]
+[ext_resource type="PackedScene" uid="uid://b7obohydt3o40" path="res://Scenes/wall.tscn" id="8_q83er"]
 
 [node name="Level" type="Node2D"]
+modulate = Color(0.34902, 0.34902, 0.34902, 1)
+position = Vector2(5, 0)
 
 [node name="background" type="Sprite2D" parent="."]
 texture_repeat = 2
@@ -15,13 +20,28 @@ region_enabled = true
 region_rect = Rect2(-1051.25, -1618.83, 4086.11, 2892.24)
 
 [node name="Player" parent="." instance=ExtResource("2_d5ddt")]
+collision_mask = 7
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
 [node name="Enemy" parent="." instance=ExtResource("3_67ho7")]
-position = Vector2(613, 348)
+position = Vector2(507, 318)
+collision_layer = 2
+collision_mask = 7
 
 [node name="UI" parent="." instance=ExtResource("3_6bt3w")]
 
 [node name="Enemy2" parent="." instance=ExtResource("5_e4i43")]
 position = Vector2(-357, 182)
+
+[node name="Light1" parent="." instance=ExtResource("6_0nn6v")]
+position = Vector2(445, -146)
+
+[node name="Light2" parent="." instance=ExtResource("7_sssry")]
+position = Vector2(160, -508)
+
+[node name="Wall" parent="." instance=ExtResource("8_q83er")]
+position = Vector2(-92, -492)
+scale = Vector2(3, 3)
+collision_layer = 4
+collision_mask = 3

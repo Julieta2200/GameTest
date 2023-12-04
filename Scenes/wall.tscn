@@ -1,0 +1,79 @@
+[gd_scene load_steps=12 format=3 uid="uid://b7obohydt3o40"]
+
+[ext_resource type="Texture2D" uid="uid://bqnlsr1q74e0i" path="res://img/images-removebg-preview (4).png" id="1_kbfae"]
+[ext_resource type="PackedScene" uid="uid://ia3on7sjvvod" path="res://Scenes/wall_light_2.tscn" id="2_fq17n"]
+[ext_resource type="PackedScene" uid="uid://pcgjxmw6m50m" path="res://Scenes/wall_light.tscn" id="3_8d3w0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_durfl"]
+size = Vector2(181, 179)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_d6gf7"]
+polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_gm8kq"]
+polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ptty0"]
+polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_d0on7"]
+polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_6e14h"]
+polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8etw6"]
+texture = ExtResource("1_kbfae")
+texture_region_size = Vector2i(20, 20)
+8:2/0 = 0
+8:2/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_d0on7")
+8:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+8:2/0/physics_layer_0/angular_velocity = 0.0
+8:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
+9:2/0 = 0
+9:2/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_6e14h")
+9:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+9:2/0/physics_layer_0/angular_velocity = 0.0
+9:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
+10:2/0 = 0
+10:2/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_d6gf7")
+10:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+10:2/0/physics_layer_0/angular_velocity = 0.0
+10:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
+11:2/0 = 0
+11:2/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_gm8kq")
+11:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+11:2/0/physics_layer_0/angular_velocity = 0.0
+11:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
+12:2/0 = 0
+12:2/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_ptty0")
+12:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+12:2/0/physics_layer_0/angular_velocity = 0.0
+12:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
+
+[sub_resource type="TileSet" id="TileSet_ow3pj"]
+tile_size = Vector2i(20, 20)
+occlusion_layer_0/light_mask = 1
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_8etw6")
+
+[node name="Wall" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-111.5, 50.5)
+shape = SubResource("RectangleShape2D_durfl")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_ow3pj")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65543, 589824, 2, -65542, 589824, 2, -65541, 589824, 2, -65540, 655360, 2, -65539, 720896, 2, -65538, 655360, 2, -65544, 524288, 2, -2, 720896, 2, 65534, 655360, 2, 131070, 655360, 2, 196606, 655360, 2, 262142, 655360, 2, 327678, 655360, 2, 196605, 655360, 2, 196604, 655360, 2, 196603, 655360, 2, 196602, 524288, 2, 196599, 524288, 2, -65545, 655360, 2, -65546, 655360, 2, -10, 655360, 2, 65526, 655360, 2, 131062, 655360, 2, 196598, 655360, 2, 262134, 655360, 2, 327670, 655360, 2, 393206, 655360, 2, 458743, 655360, 2, 458742, 655360, 2, 458744, 655360, 2, 458745, 655360, 2, 458746, 655360, 2, 393214, 589824, 2, 458750, 524288, 2, 458747, 524288, 2)
+
+[node name="wallLight2" parent="." instance=ExtResource("2_fq17n")]
+position = Vector2(-177, 86.0001)
+rotation = 1.5708
+scale = Vector2(0.03, 0.03)
+
+[node name="wallLight" parent="." instance=ExtResource("3_8d3w0")]
+position = Vector2(-70, -15)
+rotation = 3.14159
+scale = Vector2(0.3, 0.3)

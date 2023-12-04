@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://du323m3diy4ps"]
+[gd_scene load_steps=4 format=3 uid="uid://du323m3diy4ps"]
 
 [ext_resource type="Texture2D" uid="uid://ci55sq1sw3udf" path="res://img/image_5.png" id="1_1uakx"]
 [ext_resource type="Script" path="res://Scenes/Script/player.gd" id="1_4tjt3"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_hfdoi"]
+polygon = PackedVector2Array(-11, 53, -12, 45, -20, 38, -24, 40, -34, 40, -39, 34, -32, 33, -33, 28, -43, 14, -38, -29, -31, -42, -18, -51, 13, -53, 25, -44, 34, -27, 43, -7, 37, -4, 35, 23, 29, 29, 29, 33, 36, 33, 36, 36, 33, 36, 33, 40, 15, 43, 16, 52, 6, 53, 4, 44, -2, 46, -2, 54)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_4tjt3")
@@ -12,3 +15,6 @@ polygon = PackedVector2Array(-40, 34, -32, 32, -33, 25, -42, 16, -43, 4, -42, -6
 
 [node name="player" type="Sprite2D" parent="."]
 texture = ExtResource("1_1uakx")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_hfdoi")
