@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://b7obohydt3o40" path="res://Scenes/wall.tscn" id="8_q83er"]
 
 [node name="Level" type="Node2D"]
-modulate = Color(0.34902, 0.34902, 0.34902, 1)
 position = Vector2(5, 0)
 
 [node name="background" type="Sprite2D" parent="."]
@@ -45,3 +44,6 @@ position = Vector2(-92, -492)
 scale = Vector2(3, 3)
 collision_layer = 4
 collision_mask = 3
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.580392, 0.580392, 0.580392, 1)
